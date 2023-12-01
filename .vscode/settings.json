@@ -1,0 +1,7 @@
+{
+    "editor.defaultFormatter": "GitHub.copilot",
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "Django-html": "html"
+    }
+}
