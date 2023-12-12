@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+
+    # Other
     'crispy_forms',
 ]
 
@@ -76,13 +78,13 @@ TEMPLATES = [
                 'django.template.context_processors.request', # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', # required by crispy forms
+                'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [
-                'crispy_forms.templatetags.crispy_forms_tags', # required by crispy forms
-                'crispy_forms.templatetags.crispy_forms_field', # required by crispy forms
-            ],
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -165,6 +167,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51OMXraKxtCs4iFlaWGQfH54kPhgbdQZxa7f3VBOL1mJ9uW3Bd0w0yW9jrvr5QHhIcjo9qtcxh381T8ofe90NrYtx001vmn5dXN')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51OMXraKxtCs4iFlaROf62mdxqAl9Dlnvn4aOIe726yIgxMjhw4p7pPfDWQ3zdPzZP9DcCGoMEmr8ncHmDa3uJ9cL00wiYMlPpG')
