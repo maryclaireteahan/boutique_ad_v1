@@ -40,3 +40,8 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].label = False
             else:
                 self.fields[field].widget.attrs['class'] = 'stripe-style-select'
+                placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].label = False  # Hide the label for the country field
+                self.fields[field].widget.attrs['class'] = 'stripe-style-input'  # Add the desired class for consistenc
+                
