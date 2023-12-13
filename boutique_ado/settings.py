@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+if os.path.exists("env.py"):
+    import env
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -171,8 +174,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'pk_test_51OMXraKxtCs4iFlaWGQfH54kPhgbdQZxa7f3VBOL1mJ9uW3Bd0w0yW9jrvr5QHhIcjo9qtcxh381T8ofe90NrYtx001vmn5dXN')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'sk_test_51OMXraKxtCs4iFlaROf62mdxqAl9Dlnvn4aOIe726yIgxMjhw4p7pPfDWQ3zdPzZP9DcCGoMEmr8ncHmDa3uJ9cL00wiYMlPpG')
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', 'pk_test_51OMXraKxtCs4iFlaWGQfH54kPhgbdQZxa7f3VBOL1mJ9uW3Bd0w0yW9jrvr5QHhIcjo9qtcxh381T8ofe90NrYtx001vmn5dXN')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', 'sk_test_51OMXraKxtCs4iFlaROf62mdxqAl9Dlnvn4aOIe726yIgxMjhw4p7pPfDWQ3zdPzZP9DcCGoMEmr8ncHmDa3uJ9cL00wiYMlPpG')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
